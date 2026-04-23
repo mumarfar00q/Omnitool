@@ -9,7 +9,11 @@ export default function ToolsList() {
 
   return (
     <div className="animate-in fade-in duration-500">
-      <SEO title="All Tools" description="Comprehensive directory of our financial and utility calculators." />
+      <SEO 
+        title="Financial Tools | Precise Analytical Calculators" 
+        description="Comprehensive directory of our financial and utility calculators including Student, Auto, and Personal loan engines." 
+        canonical="/tools"
+      />
       
   <div className="mb-10 p-8 bg-[var(--box-bg)] rounded-3xl border border-[var(--border-color)] relative overflow-hidden group shadow-xl transition-colors">
     <h2 className="text-3xl font-black mb-2 tracking-tighter text-[var(--accent-color)] uppercase">

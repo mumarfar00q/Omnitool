@@ -1,11 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SEO from '../components/SEO';
-import { Mail, MessageCircle, MapPin, Send } from 'lucide-react';
+import { Mail, MessageCircle, MapPin, Send, CheckCircle2 } from 'lucide-react';
 
 export default function Contact() {
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('submitting');
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      email: formData.get('email'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/support', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatus('error');
+    }
+  };
+
   return (
     <div className="animate-in fade-in duration-700">
-      <SEO title="Contact" description="Get in touch with our precision engineering team." />
+      <SEO 
+        title="Contact Engineering Support | Omnitools" 
+        description="Get in touch with our precision engineering team for tool requests or technical inquiries." 
+        canonical="/contact"
+      />
       
       <div className="mb-10 p-8 bg-[var(--box-bg)] rounded-3xl border border-[var(--border-color)] relative overflow-hidden group shadow-xl transition-colors">
         <h2 className="text-3xl font-black mb-2 tracking-tighter text-[var(--accent-color)] uppercase">
@@ -47,28 +81,42 @@ export default function Contact() {
         </div>
 
         <div className="bg-[var(--bg-secondary)] p-6 sm:p-8 rounded-xl border border-[var(--border-color)] shadow-sm">
-          <form 
-            className="space-y-4"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const formData = new FormData(e.currentTarget);
-              const email = formData.get('email');
-              const message = formData.get('message');
-              window.location.href = `mailto:mumarfarooq.at@gmail.com?subject=Omnitools Support Request&body=From: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-            }}
-          >
-            <div>
-              <label className="text-[10px] uppercase font-bold text-[var(--text-secondary)] opacity-50 block mb-1.5 pl-1">Your Email</label>
-              <input name="email" type="email" required className="custom-input h-10 rounded-lg text-sm" placeholder="name@domain.com" />
+          {status === 'success' ? (
+            <div className="text-center py-12 space-y-4">
+              <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle2 className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold uppercase tracking-tight">Transmission Successful</h3>
+              <p className="text-sm text-[var(--text-secondary)] opacity-60">Your request has been logged by the backend server. Our team will review it shortly.</p>
+              <button 
+                onClick={() => setStatus('idle')}
+                className="mt-6 text-[11px] font-bold text-[var(--accent-color)] uppercase tracking-widest hover:underline"
+              >
+                Send another message
+              </button>
             </div>
-            <div>
-              <label className="text-[10px] uppercase font-bold text-[var(--text-secondary)] opacity-50 block mb-1.5 pl-1">Message</label>
-              <textarea name="message" rows={4} required className="custom-input min-h-[120px] py-3 rounded-lg text-sm resize-none" placeholder="Describe your request..."></textarea>
-            </div>
-            <button type="submit" className="w-full bg-[var(--accent-color)] text-[var(--bg-primary)] font-bold py-3 rounded-lg uppercase tracking-wider text-[11px] flex items-center justify-center gap-3 active:scale-95 transition-all shadow-lg shadow-[var(--accent-color)]/20">
-              <Send className="w-4 h-4" /> Send Request
-            </button>
-          </form>
+          ) : (
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              <div>
+                <label className="text-[10px] uppercase font-bold text-[var(--text-secondary)] opacity-50 block mb-1.5 pl-1">Your Email</label>
+                <input name="email" type="email" required className="custom-input h-10 rounded-lg text-sm" placeholder="name@domain.com" />
+              </div>
+              <div>
+                <label className="text-[10px] uppercase font-bold text-[var(--text-secondary)] opacity-50 block mb-1.5 pl-1">Message</label>
+                <textarea name="message" rows={4} required className="custom-input min-h-[120px] py-3 rounded-lg text-sm resize-none" placeholder="Describe your request..."></textarea>
+              </div>
+              {status === 'error' && (
+                <p className="text-[10px] font-bold text-red-500 uppercase">Warning: Server communication failure. Please try again.</p>
+              )}
+              <button 
+                disabled={status === 'submitting'}
+                type="submit" 
+                className="w-full bg-[var(--accent-color)] text-[var(--bg-primary)] font-bold py-3 rounded-lg uppercase tracking-wider text-[11px] flex items-center justify-center gap-3 active:scale-95 transition-all shadow-lg shadow-[var(--accent-color)]/20 disabled:opacity-50"
+              >
+                <Send className="w-4 h-4" /> {status === 'submitting' ? 'Transmitting...' : 'Send Request'}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </div>

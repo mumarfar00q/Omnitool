@@ -1,30 +1,44 @@
-import { useEffect } from 'react';
+import React from 'react';
+import * as HelmetPkg from 'react-helmet-async';
+
+const Helmet = (HelmetPkg as any).Helmet || (HelmetPkg as any).default?.Helmet;
 
 interface SEOProps {
   title?: string;
   description?: string;
+  canonical?: string;
+  type?: string;
 }
 
-export default function SEO({ title, description }: SEOProps) {
-  useEffect(() => {
-    const baseTitle = "Omnitools | Professional Loan & Financial Tools";
-    const fullTitle = title ? `${title} | Omnitools` : baseTitle;
-    document.title = fullTitle;
+export default function SEO({ 
+  title, 
+  description, 
+  canonical, 
+  type = 'website' 
+}: SEOProps) {
+  const baseTitle = "Omnitools | Professional Loan & Financial Tools";
+  const fullTitle = title ? `${title} | Omnitools` : baseTitle;
+  const finalDescription = description || "High-performance suite of financial tools including loan and EMI calculators. Engineering precision for debt analysis.";
+  const siteUrl = "https://omnitools.app"; // Replace with your actual domain
+  const finalCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
 
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+  return (
+    <Helmet>
+      {/* Basic Meta Tags */}
+      <title>{fullTitle}</title>
+      <meta name="description" content={finalDescription} />
+      <link rel="canonical" href={finalCanonical} />
 
-    const finalDescription = description || "High-performance suite of financial tools including loan and EMI calculators. Engineering precision for debt analysis.";
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content={type} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={finalDescription} />
+      <meta property="og:url" content={finalCanonical} />
 
-    if (metaDescription) metaDescription.setAttribute('content', finalDescription);
-    if (ogTitle) ogTitle.setAttribute('content', fullTitle);
-    if (ogDescription) ogDescription.setAttribute('content', finalDescription);
-    if (twitterTitle) twitterTitle.setAttribute('content', fullTitle);
-    if (twitterDescription) twitterDescription.setAttribute('content', finalDescription);
-  }, [title, description]);
-
-  return null;
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={finalDescription} />
+    </Helmet>
+  );
 }

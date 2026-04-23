@@ -1,6 +1,6 @@
 {
   "name": "Omnitools",
-  "description": "A high-performance, SEO-optimized suite of financial calculators and student tools including Student Loan, Auto Loan, Personal Loan, and EMI calculators.",
+  "description": "A high-performance, full-stack multi-page suite of financial calculators and student tools with Express backend integration.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }

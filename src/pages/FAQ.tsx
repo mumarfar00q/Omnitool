@@ -32,7 +32,11 @@ export default function FAQ() {
 
   return (
     <div className="animate-in fade-in duration-700">
-      <SEO title="Support" description="Technical and utility questions about our precision calculator suite." />
+      <SEO 
+        title="Technical Support & FAQ | Omnitools" 
+        description="Common inquiries regarding our mathematical engines, loan formulas, and data privacy protocols." 
+        canonical="/faq"
+      />
       
       <div className="mb-10 p-8 bg-[var(--box-bg)] rounded-3xl border border-[var(--border-color)] relative overflow-hidden group shadow-xl transition-colors">
         <h2 className="text-3xl font-black mb-2 tracking-tighter text-[var(--accent-color)] uppercase">

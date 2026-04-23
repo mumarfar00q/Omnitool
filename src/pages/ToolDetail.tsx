@@ -48,7 +48,11 @@ export default function ToolDetail() {
 
   return (
     <div className="animate-in fade-in slide-in-from-top-4 duration-700">
-      <SEO title={tool.name} description={tool.description} />
+      <SEO 
+        title={tool.name} 
+        description={tool.description} 
+        canonical={`/tools/${tool.slug}`}
+      />
       
       {/* Print-only Header */}
       <div className="print-only hidden print:block mb-10 border-b-2 border-slate-900 pb-6">

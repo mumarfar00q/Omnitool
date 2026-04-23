@@ -28,7 +28,7 @@ export default function Blog() {
       author: "OMNITOOLS RESEARCH",
       readTime: "8 MIN READ",
       excerpt: "Understanding the difference between subsidized and unsubsidized interest can save you thousands over the life of your loan.",
-      image: "https://img.freepik.com/premium-photo/earth-globe-with-graduation-hat-plants-growing-up-stack-coins-concept-saving-money-education-student-loan-scholarship-tuition-fees-future_42299-3226.jpg?ga=GA1.1.101956067.1776854751&semt=ais_hybrid&w=740&q=80",
+      image: "https://picsum.photos/seed/edu-loan/800/450",
       content: (
         <div className="space-y-6 text-[var(--text-secondary)] leading-relaxed">
           <p className="text-lg font-semibold text-[var(--text-primary)]">Student loans are more than just a monthly bill; they are a long-term financial commitment that requires precise management.</p>
@@ -51,7 +51,7 @@ export default function Blog() {
       author: "DATA ENGINE",
       readTime: "6 MIN READ",
       excerpt: "Auto loans are depreciating assets. Learn why the 20/4/10 rule is the gold standard for vehicle budgeting.",
-      image: "https://img.freepik.com/premium-photo/tough-jeep-car-climbs-steep-mountain-paths_1153428-2688.jpg?ga=GA1.1.101956067.1776854751&semt=ais_hybrid&w=740&q=80",
+      image: "https://picsum.photos/seed/auto-math/800/450",
       content: (
         <div className="space-y-6 text-[var(--text-secondary)] leading-relaxed">
           <p className="text-lg font-semibold text-[var(--text-primary)]">A car loses roughly 20% of its value the second you drive it off the lot. Financing this depreciation requires a specific strategy.</p>
@@ -117,6 +117,7 @@ export default function Blog() {
       <SEO 
         title="Knowledge Base | Financial Strategy & Loan Analysis" 
         description="Deep dives into loan mathematics, debt strategy, and financial planning. Expert guides for student, auto, and personal loans." 
+        canonical="/blog"
       />
       
       <div className="mb-10 p-8 bg-[var(--box-bg)] rounded-3xl border border-[var(--border-color)] relative overflow-hidden group shadow-xl transition-colors">

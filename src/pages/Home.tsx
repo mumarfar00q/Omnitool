@@ -3,7 +3,25 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { TOOLS } from '../registry/tools';
 import SEO from '../components/SEO';
-import { Search, ChevronRight, Calculator, GraduationCap, Car, BadgeDollarSign, Zap, ShieldCheck } from 'lucide-react';
+import { Search, ChevronRight, Calculator, GraduationCap, Car, BadgeDollarSign, Zap, ShieldCheck, Server } from 'lucide-react';
+
+function ServerStatus() {
+  const [data, setData] = React.useState<{ status: string; latency: string } | null>(null);
+
+  React.useEffect(() => {
+    fetch('/api/status')
+      .then(res => res.json())
+      .then(setData)
+      .catch(() => setData({ status: 'Local', latency: '0ms' }));
+  }, []);
+
+  return (
+    <span className="text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 opacity-70">
+      {data?.status === 'Online' ? <Server className="w-3.5 h-3.5 text-green-500 animate-pulse" /> : <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-color)]" />}
+      {data?.status === 'Online' ? `Server ${data.status} (${data.latency})` : 'System Secure'}
+    </span>
+  );
+}
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -25,6 +43,7 @@ export default function Home() {
       <SEO 
         title="Omnitools - Professional Analytical Engines" 
         description="High-performance financial calculators engineered for precision and absolute privacy."
+        canonical="/"
       />
 
       <div className="mb-10 relative p-8 bg-[var(--box-bg)] rounded-3xl border border-[var(--border-color)] shadow-2xl overflow-hidden group transition-colors">
@@ -33,9 +52,7 @@ export default function Home() {
           <div className="flex items-center gap-2 mb-4 text-[var(--accent-color)]">
             <div className="px-1.5 py-0.5 bg-[var(--bg-primary)] text-[var(--accent-color)] text-[10px] font-bold uppercase tracking-wider rounded border border-[var(--border-color)]">v2.0 Stable</div>
             <div className="w-[1px] h-3 bg-[var(--border-color)]"></div>
-            <span className="text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 opacity-70">
-              <ShieldCheck className="w-3.5 h-3.5" /> System Secure
-            </span>
+            <ServerStatus />
           </div>
           <h2 className="text-3xl lg:text-5xl font-black mb-3 tracking-tighter leading-tight text-[var(--accent-color)] uppercase">
             Advanced Analytical <span className="text-[var(--text-primary)]">Tools</span>

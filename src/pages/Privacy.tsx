@@ -5,7 +5,11 @@ import { ShieldCheck, Lock, EyeOff } from 'lucide-react';
 export default function Privacy() {
   return (
     <div className="animate-in fade-in duration-700">
-      <SEO title="Privacy Policy" description="How we handle your data with absolute transparency and security." />
+      <SEO 
+        title="Privacy Protocol | Omnitools Secure Infrastructure" 
+        description="How we handle your data with absolute transparency and local computational security." 
+        canonical="/privacy-policy"
+      />
       
       <div className="mb-10">
         <h2 className="text-3xl font-bold mb-2 tracking-tight">Privacy <span className="text-[var(--accent-color)]">Protocol</span></h2>
