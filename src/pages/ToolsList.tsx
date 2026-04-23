@@ -41,20 +41,20 @@ export default function ToolsList() {
                 <Link 
                   key={tool.id} 
                   to={`/tools/${tool.slug}`}
-                  className="tool-card group active:scale-[0.99]"
+                  className="p-5 bg-[var(--box-bg)] border border-[var(--border-color)] rounded-2xl group block active:scale-[0.99] hover:border-[var(--accent-color)] transition-all shadow-xl shadow-black/5"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[var(--accent-color)] group-hover:scale-110 transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] flex items-center justify-center text-[var(--accent-color)] group-hover:scale-110 transition-all duration-300 shadow-sm">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between mb-1">
-                        <h4 className="text-sm font-black text-white uppercase tracking-tighter truncate group-hover:text-[var(--accent-color)] transition-colors">
+                        <h4 className="text-sm font-black text-[var(--text-primary)] uppercase tracking-tighter truncate group-hover:text-[var(--accent-color)] transition-colors">
                           {tool.name}
                         </h4>
-                        <ChevronRight className="w-3.5 h-3.5 text-white opacity-20 group-hover:translate-x-1 group-hover:opacity-100 transition-all" />
+                        <ChevronRight className="w-3.5 h-3.5 text-[var(--text-secondary)] opacity-10 group-hover:translate-x-1 group-hover:opacity-100 transition-all" />
                       </div>
-                      <p className="text-[11px] text-white/40 leading-relaxed line-clamp-1 font-bold tracking-tight">
+                      <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed line-clamp-1 font-bold tracking-tight opacity-60">
                         {tool.description}
                       </p>
                     </div>
