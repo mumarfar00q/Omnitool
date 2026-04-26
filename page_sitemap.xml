@@ -4,7 +4,7 @@
   <!-- Home -->
   <url>
     <loc>https://omnitool-pk.vercel.app/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2024-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- Tools List -->
   <url>
     <loc>https://omnitool-pk.vercel.app/tools</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2024-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -20,7 +20,7 @@
   <!-- blog -->
   <url>
     <loc>https://omnitool-pk.vercel.app/blog</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2024-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -28,7 +28,7 @@
   <!-- FAQ -->
   <url>
     <loc>https://omnitool-pk.vercel.app/faq</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2024-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -36,7 +36,7 @@
   <!-- Contact -->
   <url>
     <loc>https://omnitool-pk.vercel.app/contact</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2024-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -44,7 +44,7 @@
   <!-- Student loan Calculator -->
   <url>
     <loc>https://omnitool-pk.vercel.app/tools/student-loan-calculator</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2024-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -52,7 +52,7 @@
   <!-- Auto loan Calculator -->
   <url>
     <loc>https://omnitool-pk.vercel.app/tools/auto-loan-calculator</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2024-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -60,7 +60,7 @@
   <!-- Personal loan Calculator -->
   <url>
     <loc>https://omnitool-pk.vercel.app/tools/personal-loan-calculator</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2024-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -68,7 +68,7 @@
   <!-- EMI Calculator -->
   <url>
     <loc>https://omnitool-pk.vercel.app/tools/emi-loan-calculator</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2024-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -76,7 +76,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://omnitool-pk.vercel.app/privacy-policy</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2024-04-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
