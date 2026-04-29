@@ -30,7 +30,7 @@ async function prerender() {
   console.log('🚀 Starting manual SSG prerendering...');
   
   // Generate sitemap
-  console.log('  🌐 Generating page_sitemap.xml...');
+  console.log('  🌐 Generating newsitemap.xml...');
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routesToPrerender.map(url => `  <url>
@@ -41,14 +41,14 @@ ${routesToPrerender.map(url => `  <url>
   </url>`).join('\n')}
 </urlset>`;
   
-  fs.writeFileSync(toAbs('dist/page_sitemap.xml'), sitemap);
+  fs.writeFileSync(toAbs('dist/newsitemap.xml'), sitemap);
   
   // Generate robots.txt
   console.log('  🤖 Generating robots.txt...');
   const robots = `User-agent: *
 Allow: /
 
-Sitemap: ${BASE_URL}/page_sitemap.xml`;
+Sitemap: ${BASE_URL}/newsitemap.xml`;
   fs.writeFileSync(toAbs('dist/robots.txt'), robots);
   
   for (const url of routesToPrerender) {

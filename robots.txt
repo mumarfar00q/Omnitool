@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://omnitool-pk.vercel.app/page_sitemap.xml
+Sitemap: https://omnitool-pk.vercel.app/newsitemap.xml
