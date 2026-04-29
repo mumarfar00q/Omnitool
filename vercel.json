@@ -3,7 +3,7 @@
   "outputDirectory": "dist",
   "headers": [
     {
-      "source": "/page_sitemap.xml",
+      "source": "/newsitemap.xml",
       "headers": [
         {
           "key": "Cache-Control",
@@ -31,7 +31,7 @@
       "destination": "/server.ts"
     },
     {
-      "source": "/((?!page_sitemap\\.xml|robots\\.txt|assets/).*)",
+      "source": "/((?!newsitemap\\.xml|robots\\.txt|assets/).*)",
       "destination": "/index.html"
     }
   ]
