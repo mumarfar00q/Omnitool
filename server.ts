@@ -44,8 +44,8 @@ async function startServer() {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
     
-    // Generic route for SPA fallback if needed, but the server handles the routing
-    app.get('*all', (req, res) => {
+    // Generic route for SPA fallback (only for HTML routes, not static assets)
+    app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }
