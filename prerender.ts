@@ -24,7 +24,7 @@ const routesToPrerender = [
   '/tools/emi-loan-calculator'
 ];
 
-const BASE_URL = 'https://omnitools.engine';
+const BASE_URL = 'https://omnitool-pk.vercel.app';
 
 async function prerender() {
   console.log('🚀 Starting manual SSG prerendering...');
