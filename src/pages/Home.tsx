@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <div className="animate-in fade-in duration-700">
       <SEO 
-        title="Omnitools - Professional Analytical Engines" 
+        title="OmniTools - Precision Calculation Engine" 
         description="High-performance financial calculators engineered for precision and absolute privacy."
         canonical="/"
       />

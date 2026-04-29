@@ -16,10 +16,10 @@ export default function SEO({
   canonical, 
   type = 'website' 
 }: SEOProps) {
-  const baseTitle = "Omnitools | Professional Loan & Financial Tools";
-  const fullTitle = title ? `${title} | Omnitools` : baseTitle;
-  const finalDescription = description || "High-performance suite of financial tools including loan and EMI calculators. Engineering precision for debt analysis.";
-  const siteUrl = "https://omnitools.app"; // Replace with your actual domain
+  const baseTitle = "OmniTools | Precision Calculation Engine";
+  const fullTitle = title ? `${title} | OmniTools` : baseTitle;
+  const finalDescription = description || "High-performance financial calculators and unit converters for modern decision makers.";
+  const siteUrl = "https://omnitool-pk.vercel.app";
   const finalCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
 
   return (
@@ -27,6 +27,7 @@ export default function SEO({
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={finalDescription} />
+      <meta name="google-site-verification" content="bD-IOk_dlVDCLZuewVXg3Fr9LyRoOf85SnV8fHdVKUA" />
       <link rel="canonical" href={finalCanonical} />
 
       {/* Open Graph / Facebook */}
@@ -34,11 +35,13 @@ export default function SEO({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:url" content={finalCanonical} />
+      <meta property="og:image" content={`${siteUrl}/banner.png`} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={finalDescription} />
+      <meta name="twitter:image" content={`${siteUrl}/banner.png`} />
     </Helmet>
   );
 }
